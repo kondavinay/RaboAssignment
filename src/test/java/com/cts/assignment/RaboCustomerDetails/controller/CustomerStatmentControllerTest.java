@@ -1,6 +1,6 @@
-package com.rabo.customerstatment.controller;
+package com.cts.assignment.RaboCustomerDetails.controller;
 
-import com.rabo.customerstatment.Controller.CustomerStatmentController;
+import com.cts.assignment.RaboCustomerDetails.Controller.CustomerStatmentController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -26,7 +26,7 @@ public class CustomerStatmentControllerTest {
     CustomerStatmentController CustomerStatmentController;
 
     @Mock
-    com.rabo.customerstatment.service.CustomerStatmentServiceImpl CustomerStatmentServiceImpl;
+    com.cts.assignment.RaboCustomerDetails.service.CustomerStatmentServiceImpl CustomerStatmentServiceImpl;
 
     @Mock
     MultipartFile multipartFile;

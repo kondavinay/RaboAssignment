@@ -1,7 +1,7 @@
-package com.rabo.customerstatment.service;
+package com.cts.assignment.RaboCustomerDetails.service;
 
-import com.rabo.customerstatment.domain.CustomerStatmentRecord;
-import com.rabo.customerstatment.domain.CustomerStatmentRecords;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecord;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecords;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Map;

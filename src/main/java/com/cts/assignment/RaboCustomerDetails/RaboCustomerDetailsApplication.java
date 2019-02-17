@@ -1,4 +1,4 @@
-package com.rabo.customerstatment;
+package com.cts.assignment.RaboCustomerDetails;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

@@ -1,4 +1,4 @@
-package com.rabo.customerstatment.domain;
+package com.cts.assignment.RaboCustomerDetails.domain;
 
 
 import lombok.*;

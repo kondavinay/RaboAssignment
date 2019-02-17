@@ -1,10 +1,10 @@
-package com.rabo.customerstatment.Controller;
+package com.cts.assignment.RaboCustomerDetails.Controller;
 
 
-import com.rabo.customerstatment.domain.CustomerStatmentRecord;
-import com.rabo.customerstatment.domain.CustomerStatmentRecords;
-import com.rabo.customerstatment.service.CustomerStatmentService;
-import com.rabo.customerstatment.util.FileParsing;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecord;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecords;
+import com.cts.assignment.RaboCustomerDetails.service.CustomerStatmentService;
+import com.cts.assignment.RaboCustomerDetails.util.FileParsing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

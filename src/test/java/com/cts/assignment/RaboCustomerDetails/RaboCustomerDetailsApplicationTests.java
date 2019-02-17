@@ -1,4 +1,4 @@
-package com.rabo.customerstatment;
+package com.cts.assignment.RaboCustomerDetails;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

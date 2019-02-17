@@ -1,7 +1,7 @@
-package com.rabo.customerstatment.util;
+package com.cts.assignment.RaboCustomerDetails.util;
 
-import com.rabo.customerstatment.domain.CustomerStatmentRecord;
-import com.rabo.customerstatment.domain.CustomerStatmentRecords;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecord;
+import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecords;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.slf4j.Logger;
