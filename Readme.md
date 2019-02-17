@@ -2,25 +2,25 @@
 
 **Customer Transaction Reports**
 
-**install the following softwares**
+*install the following softwares*
 
-   **java,maven,Git**
+   *java,maven,Git*
    
    
  ## pull the project from Git
  
- **git clone https://github.com/kondavinay/RaboAssignment**
+ *git clone https://github.com/kondavinay/RaboAssignment*
  
  
  ## Building Application
  
- **Navigate to pom.xml location and enter the following command to build application**
+ *Navigate to pom.xml location and enter the following command to build application*
  
  Open Cmd / run mvn build form eclipse
  
   *mvn clean install*
   
-  ### CustomerStatment
+  ## CustomerStatment
   
   *Upload valid csv or xml file*
   
@@ -31,10 +31,11 @@
   
   ## OutputCheck
   
-  **check the output via postman by hitting the serverport**
-  ** port- 9797**
+  *check the output via postman by hitting the serverport*
   
-  ### @author vinay Konda
+  *port- 9797*
+  
+  ## @author vinay Konda
  
  
 
