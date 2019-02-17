@@ -1,4 +1,4 @@
-package com.cts.assignment.RaboCustomerDetails.domain;
+package com.rabo.customerstatment.domain;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /**
- * Domain class for holding {@link List} of {@link TransactionRecord}'s
+ * Domain class for holding {@link List} of {@link CustomerStatmentRecord}'s
  *
  * @author Vinay Konda
  *
@@ -16,16 +16,16 @@ import java.util.List;
 
 @XmlRootElement(name = "records")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class TransactionRecords {
+public class CustomerStatmentRecords {
 
     @XmlElement(name = "record")
-    private List<TransactionRecord> record;
+    private List<CustomerStatmentRecord> record;
 
-    public List<TransactionRecord> getRecord() {
+    public List<CustomerStatmentRecord> getRecord() {
         return record;
     }
 
-    public void setRecord(List<TransactionRecord> record) {
+    public void setRecord(List<CustomerStatmentRecord> record) {
         this.record = record;
     }
 

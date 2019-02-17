@@ -1,7 +1,7 @@
-package com.cts.assignment.RaboCustomerDetails.service;
+package com.rabo.customerstatment.service;
 
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecord;
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecords;
+import com.rabo.customerstatment.domain.CustomerStatmentRecord;
+import com.rabo.customerstatment.domain.CustomerStatmentRecords;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -16,23 +16,23 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Unit test for {@link RaboCustomerStatmentServiceImpl}
+ * Unit test for {@link CustomerStatmentServiceImpl}
  *
  * @author vinay konda
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class serviceImplTest {
+public class CustomerStatmentServiceImplTest {
 
     @InjectMocks
-    private RaboCustomerStatmentServiceImpl transactionServiceimpl;
+    private CustomerStatmentServiceImpl CustomerStatmentServiceImpl;
 
     @Test
     public void testForValidRecords() {
 
-        TransactionRecords transactionRecords = new TransactionRecords();
-        List<TransactionRecord> transactionRecord = new ArrayList<TransactionRecord>();
-        transactionRecord.add(new TransactionRecord("112806",
+        CustomerStatmentRecords transactionRecords = new CustomerStatmentRecords();
+        List<CustomerStatmentRecord> transactionRecord = new ArrayList<CustomerStatmentRecord>();
+        transactionRecord.add(new CustomerStatmentRecord("112806",
                 "NL91RABO0315273637",
                 "Clothes from Jan Bakker",
                 "91.23",
@@ -40,7 +40,7 @@ public class serviceImplTest {
                 "106.8")
         );
 
-        transactionRecord.add(new TransactionRecord("183049",
+        transactionRecord.add(new CustomerStatmentRecord("183049",
                 "NL69ABNA0433647324",
                 "Clothes for Jan King",
                 "86.66",
@@ -48,8 +48,8 @@ public class serviceImplTest {
                 "131.16")
         );
         transactionRecords.setRecord(transactionRecord);
-        Map<String, ArrayList<TransactionRecord>> records = new HashMap<>();
-        records = transactionServiceimpl.validRecords(transactionRecords);
+        Map<String, ArrayList<CustomerStatmentRecord>> records = new HashMap<>();
+        records = CustomerStatmentServiceImpl.validRecords(transactionRecords);
         assertNotNull(records.containsKey("validRecords"));
         assertEquals(2,records.size());
 
@@ -58,11 +58,11 @@ public class serviceImplTest {
     @Test
     public void testForInvalidRecords() {
 
-        TransactionRecords transactionRecords = new TransactionRecords();
+        CustomerStatmentRecords transactionRecords = new CustomerStatmentRecords();
 
-        List<TransactionRecord> transactionRecord = new ArrayList<TransactionRecord>();
+        List<CustomerStatmentRecord> transactionRecord = new ArrayList<CustomerStatmentRecord>();
 
-        transactionRecord.add(new TransactionRecord("194261",
+        transactionRecord.add(new CustomerStatmentRecord("194261",
                 "NL91RABO0315273637",
                 "Clothes from Jan Bakker",
                 "21.6",
@@ -70,14 +70,14 @@ public class serviceImplTest {
                 "21.6")
         );
 
-        transactionRecord.add(new TransactionRecord("194261",
+        transactionRecord.add(new CustomerStatmentRecord("194261",
                 "NL91RABO0315273637",
                 "Clothes from Jan Bakker",
                 "21.6",
                 "-41.83",
                 "21.6")
         );
-        transactionRecord.add(new TransactionRecord("112806",
+        transactionRecord.add(new CustomerStatmentRecord("112806",
                 "NL91RABO0315273637",
                 "Clothes from Jan Bakker",
                 "91.23",
@@ -87,8 +87,8 @@ public class serviceImplTest {
 
         transactionRecords.setRecord(transactionRecord);
 
-        Map<String, ArrayList<TransactionRecord>> records = new HashMap<>();
-        records = transactionServiceimpl.validRecords(transactionRecords);
+        Map<String, ArrayList<CustomerStatmentRecord>> records = new HashMap<>();
+        records = CustomerStatmentServiceImpl.validRecords(transactionRecords);
 
         assertNotNull(records.containsKey("invalidRecords"));
         assertEquals(2,records.size());

@@ -1,8 +1,6 @@
-package com.cts.assignment.RaboCustomerDetails.controller;
+package com.rabo.customerstatment.controller;
 
-import com.cts.assignment.RaboCustomerDetails.Controller.RaboCustomerStatmentController;
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecord;
-import com.cts.assignment.RaboCustomerDetails.service.RaboCustomerStatmentServiceImpl;
+import com.rabo.customerstatment.Controller.CustomerStatmentController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,20 +13,20 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit test for {@link RaboCustomerStatmentController}
+ * Unit test for {@link CustomerStatmentController}
  *
  * @author vinay konda
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class RaboCustomerControllerTest {
+public class CustomerStatmentControllerTest {
 
 
     @InjectMocks
-    RaboCustomerStatmentController raboCustomerController;
+    CustomerStatmentController CustomerStatmentController;
 
     @Mock
-    RaboCustomerStatmentServiceImpl transactionServiceimpl;
+    com.rabo.customerstatment.service.CustomerStatmentServiceImpl CustomerStatmentServiceImpl;
 
     @Mock
     MultipartFile multipartFile;
@@ -41,7 +39,7 @@ public class RaboCustomerControllerTest {
                 "Reference,AccountNumber,Description,Start Balance,Mutation,End Balance\n194261,NL91RABO0315273637,Clothes from Jan Bakker,21.6,-41.83,-20.23"
                         .getBytes());
         when(multipartFile.getOriginalFilename()).thenReturn("file.csv");
-        assertNotNull(raboCustomerController.singleFileUpload(multipartFile));
+        assertNotNull(CustomerStatmentController.fileUpload(multipartFile));
     }
 
     @Test
@@ -51,7 +49,7 @@ public class RaboCustomerControllerTest {
                 "<records><record reference=\"130498\"><accountNumber>NL69ABNA0433647324</accountNumber><description>Tickets for Peter Theuß</description><startBalance>26.9</startBalance><mutation>-18.78</mutation><endBalance>8.12</endBalance></record></records>"
                         .getBytes());
         when(multipartFile.getOriginalFilename()).thenReturn("file.xml");
-        assertNotNull(raboCustomerController.singleFileUpload(multipartFile));
+        assertNotNull(CustomerStatmentController.fileUpload(multipartFile));
     }
 
 /*
@@ -66,7 +64,7 @@ public class RaboCustomerControllerTest {
                 "Reference,AccountNumber,Descriptin,Start Balance,Mutation,End Balance\n194261,NL91RABO0315273637,Clothes from Jan Bakker,21.6,-41.83,-20.23"
                         .getBytes());
         when(multipartFile.getOriginalFilename()).thenReturn("file.csv");
-        assertNotNull(raboCustomerController.singleFileUpload(multipartFile));
+        assertNotNull(CustomerStatmentController.fileUpload(multipartFile));
     }
 
     @Test
@@ -77,6 +75,6 @@ public class RaboCustomerControllerTest {
                 "<record><record reference=\"130498\"><accountNumber>NL69ABNA0433647324</accountNumber><description>Tickets for Peter Theuß</description><startBalance>26.9</startBalance><mutation>-18.78</mutation><endBalance>8.12</endBalance></record></records>"
                         .getBytes());
         when(multipartFile.getOriginalFilename()).thenReturn("file.xml");
-        assertNotNull(raboCustomerController.singleFileUpload(multipartFile));
+        assertNotNull(CustomerStatmentController.fileUpload(multipartFile));
     }
 }

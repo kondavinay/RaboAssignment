@@ -1,7 +1,7 @@
-package com.cts.assignment.RaboCustomerDetails.service;
+package com.rabo.customerstatment.service;
 
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecord;
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecords;
+import com.rabo.customerstatment.domain.CustomerStatmentRecord;
+import com.rabo.customerstatment.domain.CustomerStatmentRecords;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -10,20 +10,26 @@ import java.math.BigDecimal;
 import java.util.*;
 
 @Service
-public class RaboCustomerStatmentServiceImpl implements RaboCustomerStatmentService {
+public class CustomerStatmentServiceImpl implements CustomerStatmentService {
 
     /**
      * The logger.
      */
-    private final Logger logger = LoggerFactory.getLogger(RaboCustomerStatmentServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(CustomerStatmentServiceImpl.class);
 
-    public Map<String, ArrayList<TransactionRecord>> validRecords(TransactionRecords transactionRecords) {
+    /*
+     ** This method returns the valid records and invalid records after proper validation
+     ** @param CustomerStatmentRecords
+     ** @return records
+     */
+
+    public Map<String, ArrayList<CustomerStatmentRecord>> validRecords(CustomerStatmentRecords transactionRecords) {
 
         logger.info("valid and invalid on the records based on reference and endbalance");
 
-        ArrayList<TransactionRecord> validRecords = new ArrayList<>();
-        ArrayList<TransactionRecord> inValidRecords = new ArrayList<>();
-        Map<String, ArrayList<TransactionRecord>> records = new HashMap<>();
+        ArrayList<CustomerStatmentRecord> validRecords = new ArrayList<>();
+        ArrayList<CustomerStatmentRecord> inValidRecords = new ArrayList<>();
+        Map<String, ArrayList<CustomerStatmentRecord>> records = new HashMap<>();
 
         transactionRecords.getRecord().forEach(record -> {
             if (validateRecords(record, validRecords)) {
@@ -42,14 +48,17 @@ public class RaboCustomerStatmentServiceImpl implements RaboCustomerStatmentServ
 
 
     }
+    /*
+     ** This method validates the records based on refernce and end balance
+     * @param CustomerStatmentRecord
+     */
 
-
-    public boolean validateRecords(TransactionRecord record, ArrayList<TransactionRecord> validRecords) {
+    public boolean validateRecords(CustomerStatmentRecord record, ArrayList<CustomerStatmentRecord> validRecords) {
 
         double endBalance = Double.parseDouble(record.getStartBalance()) + Double.parseDouble(record.getMutation());
 
-        //precession conververion for accurate value
         endBalance = BigDecimal.valueOf(endBalance).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+
         boolean isReferenceExists = validRecords.stream()
                 .anyMatch(validRecord -> validRecord.getReference().equals(record.getReference()));
 

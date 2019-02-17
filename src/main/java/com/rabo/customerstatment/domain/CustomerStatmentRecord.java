@@ -1,4 +1,4 @@
-package com.cts.assignment.RaboCustomerDetails.domain;
+package com.rabo.customerstatment.domain;
 
 
 import lombok.*;
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NoArgsConstructor
 @XmlRootElement(name = "record")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class TransactionRecord
+public class CustomerStatmentRecord
 {
     @XmlAttribute(name= "reference")
     private String reference;

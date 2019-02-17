@@ -1,7 +1,7 @@
-package com.cts.assignment.RaboCustomerDetails.util;
+package com.rabo.customerstatment.util;
 
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecord;
-import com.cts.assignment.RaboCustomerDetails.domain.TransactionRecords;
+import com.rabo.customerstatment.domain.CustomerStatmentRecord;
+import com.rabo.customerstatment.domain.CustomerStatmentRecords;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.slf4j.Logger;
@@ -29,15 +29,15 @@ public class FileParsing {
     private final Logger logger = LoggerFactory.getLogger(FileParsing.class);
 
     /**
-     * This method parses the csv file date to{@link TransactionRecord}
+     * This method parses the csv file date to{@link CustomerStatmentRecord}
      *
      * @param csvInputData
      * @throws IOException
      */
 
-    public static TransactionRecords csvParse(StringReader csvInputData) throws IOException {
+    public static CustomerStatmentRecords csvParse(StringReader csvInputData) throws IOException {
 
-        TransactionRecords records = new TransactionRecords();
+        CustomerStatmentRecords records = new CustomerStatmentRecords();
 
         try (CSVParser csvParser = new CSVParser(csvInputData,
                 CSVFormat.DEFAULT.
@@ -45,10 +45,10 @@ public class FileParsing {
                         withIgnoreHeaderCase().
                         withTrim());
         ) {
-            List<TransactionRecord> record = new ArrayList<>();
+            List<CustomerStatmentRecord> record = new ArrayList<>();
 
             csvParser.forEach(csvRecord -> record.add(
-                    new TransactionRecord(csvRecord.get("Reference"),
+                    new CustomerStatmentRecord(csvRecord.get("Reference"),
                             csvRecord.get("AccountNumber"),
                             csvRecord.get("Description"),
                             csvRecord.get("Mutation"),
@@ -70,7 +70,7 @@ public class FileParsing {
      * @throws JAXBException
      */
     public static Object xmlParse(StringReader xmlInputData, Class clazz) throws JAXBException {
-        TransactionRecords records = new TransactionRecords();
+        CustomerStatmentRecords records = new CustomerStatmentRecords();
         JAXBContext jaxbContext = JAXBContext.newInstance(clazz);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         return jaxbUnmarshaller.unmarshal(xmlInputData);
