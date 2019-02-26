@@ -1,4 +1,4 @@
-package com.cts.assignment.RaboCustomerDetails.Controller;
+package com.cts.assignment.RaboCustomerDetails.controller;
 
 
 import com.cts.assignment.RaboCustomerDetails.domain.CustomerStatmentRecord;

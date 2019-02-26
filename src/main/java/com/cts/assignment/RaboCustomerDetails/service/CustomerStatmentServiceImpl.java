@@ -62,11 +62,8 @@ public class CustomerStatmentServiceImpl implements CustomerStatmentService {
         boolean isReferenceExists = validRecords.stream()
                 .anyMatch(validRecord -> validRecord.getReference().equals(record.getReference()));
 
-        if (endBalance == Double.parseDouble(record.getEndBalance()) && !isReferenceExists) {
-            return true;
-        } else {
-            return false;
-        }
+        return (endBalance == Double.parseDouble(record.getEndBalance()) && !isReferenceExists);
+
     }
 
 }
